@@ -16,13 +16,14 @@ p = zeros(m, 1);
 %
 
 
-a = (1 + e.^(-X*theta)).^-1;
-for i=m,
-  if a(i) >0.5,
+a = X*theta;
+for i=1:m,
+  if a(i) >0,
     p(i) = 1;
-  else
-    p(i) = 0;
   endif;
+  if a(i) <0,
+    p(i) = 0;
+  endif
 endfor
 
 
