@@ -22,7 +22,13 @@ p = zeros(size(X, 1), 1);
 %
 
 
+x = [ones(m,1),X];
 
+a = sigmoid(x*Theta1') > 0.5;
+a = [ones(size(a,1),1),a];
+rs = sigmoid(a*Theta2') > 0.5;
+[n,i] = max(rs,[], 2);
+p = i;
 
 
 
