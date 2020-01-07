@@ -30,7 +30,16 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
+for k = 1:num_labels,
+   theta = all_theta(k,:)';
+   rs = sigmoid(X*theta) > 0.5;
+   for i = 1:m,
+      if rs(i) == 1,
+         rs(i)=k;
+       endif;
+   endfor;
+   p = p +rs;
+endfor;
 
 
 
